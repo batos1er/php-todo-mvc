@@ -41,16 +41,19 @@ echo get_header( [ 'title' => 'Accueil' ] );
           <button type="submit" class="p-4 rounded bg-teal-400 hover:bg-teal-500 duration-300 transition-colors flex items-center font-medium text-sm uppercase text-white tracking-widest justify-center">
             Enregistrer <i class="iconoir-save-floppy-disk block ml-2 text-xl"></i>
           </button>
-          
+          <?php
+            $data = $_GET;
+            unset($data['page']);
+            ?>
           <!-- Pagination -->
           <div class="flex-1 flex flex-row justify-end space-x-4 my-8">
-            <a href="http://localhost/?page=1" class="block bg-slate-50 hover:bg-slate-200 rounded p-4 text-sm cursor-pointer transition-colors duration-300">
+            <a href="http://localhost/?page=1&<?php echo http_build_query($data);?>" class="block bg-slate-50 hover:bg-slate-200 rounded p-4 text-sm cursor-pointer transition-colors duration-300">
               1
             </a>
-            <a href="http://localhost/?page=2" class="block bg-slate-50 hover:bg-slate-200 rounded p-4 text-sm cursor-pointer transition-colors duration-300">
+            <a href="http://localhost/?page=2&<?php echo http_build_query($data);?>" class="block bg-slate-50 hover:bg-slate-200 rounded p-4 text-sm cursor-pointer transition-colors duration-300">
               2
             </a>
-            <a href="http://localhost/?page=3" class="block bg-slate-50 hover:bg-slate-200 rounded p-4 text-sm cursor-pointer transition-colors duration-300">
+            <a href="http://localhost/?page=3&<?php echo http_build_query($data);?>" class="block bg-slate-50 hover:bg-slate-200 rounded p-4 text-sm cursor-pointer transition-colors duration-300">
               3
             </a>
           </div>
